@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: app
+  labels:
+    app: app
+spec:
+  containers:
+  - name: docs
+    image: congttl/docs:latest
+    ports:
+      - containerPort: 3000
+  - name: ubuntu
+    image: congttl/ssh:ubuntu
+    ports:
+      - containerPort: 22
