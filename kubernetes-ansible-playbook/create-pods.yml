@@ -1,0 +1,13 @@
+---
+  #
+  # support k8s module in macos: pip3 install --upgrade --user openshift
+  #
+  - hosts: master
+    remote_user: k8s
+    become: yes
+    tasks:
+      - name: copy file pods
+        copy: src=app/pods.yml dest=/home/k8s
+
+      - name: apply file pods
+        shell: "kubectl create -f /home/k8s/pods.yml"
