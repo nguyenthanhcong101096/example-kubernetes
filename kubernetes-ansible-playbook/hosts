@@ -2,9 +2,9 @@
 master
 worker1
 
-[master]
+[node_master]
 master
 
-[worker]
+[node_worker]
 worker1
 worker2
