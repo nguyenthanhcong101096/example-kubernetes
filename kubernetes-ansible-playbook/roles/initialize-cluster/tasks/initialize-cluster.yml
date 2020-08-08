@@ -1,7 +1,6 @@
 ---
 - name: initialize the cluster
-  be
-  shell: kubeadm init --apiserver-advertise-address="{{ ip_address }}" --pod-network-cidr=192.168.0.0/16 >> cluster_initialized.txt
+  shell: kubeadm init --apiserver-advertise-address={{ ip_address }} --pod-network-cidr=192.168.0.0/16 >> cluster_initialized.txt
   args:
     chdir: $HOME
     creates: cluster_initialized.txt

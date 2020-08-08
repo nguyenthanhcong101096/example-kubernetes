@@ -1,0 +1,10 @@
+---
+  - hosts: node_worker
+    remote_user: k8s
+    become: yes
+    vars:
+      - working_dir: /home/k8s
+      - group: k8s
+      - owner: k8s
+    roles:
+      - initialize-cluster
