@@ -1,5 +1,5 @@
 ---
-  - hosts: node_master
+  - hosts: master
     remote_user: k8s
     become: yes
     vars:

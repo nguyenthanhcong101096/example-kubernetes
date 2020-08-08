@@ -2,7 +2,6 @@
 master
 worker1
 
-[node_master]
 master
 
 [node_worker]
