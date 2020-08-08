@@ -1,0 +1,7 @@
+---
+  - hosts: web
+    remote_user: k8s
+    become: yes
+    tasks:
+      - name: reset cluster
+        shell: kubeadm reset -f
