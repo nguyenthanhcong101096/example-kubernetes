@@ -1,9 +1,10 @@
+[web]
+master
+worker1
+
 [master]
 master
 
 [worker]
 worker1
-
-[web]
-master
-worker
+worker2
