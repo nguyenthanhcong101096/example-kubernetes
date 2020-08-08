@@ -3,10 +3,6 @@
     remote_user: k8s
     gather_facts: false
     become: yes
-    vars:
-      - working_dir: /home/k8s
-      - group: k8s
-      - owner: k8s
     tasks:
       - name: get join command
         shell: kubeadm token create --print-join-command
@@ -19,10 +15,6 @@
   - hosts: node_worker
     remote_user: k8s
     become: yes
-    vars:
-      - working_dir: /home/k8s
-      - group: k8s
-      - owner: k8s
     tasks:
       - name: join cluster
         shell: "{{ hostvars['master'].join_command }}"

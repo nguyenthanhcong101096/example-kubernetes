@@ -17,10 +17,7 @@
             128.199.180.44 worker1.xtl
 
       - name: initialize the cluster
-        shell: kubeadm init --apiserver-advertise-address={{ ip_address }} --pod-network-cidr=192.168.0.0/16 >> cluster_initialized.txt
-        args:
-          chdir: "{{ working_dir }}"
-          creates: cluster_initialized.txt
+        shell: kubeadm init --apiserver-advertise-address={{ ip_address }} --pod-network-cidr=192.168.0.0/16
 
       - name: create .kube directory
         file:
