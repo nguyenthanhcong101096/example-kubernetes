@@ -1,0 +1,6 @@
+---
+  - hosts: master
+    remote_user: k8s
+    become: yes
+    roles:
+      - initialize-cluster

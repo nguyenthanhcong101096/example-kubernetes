@@ -1,0 +1,6 @@
+---
+  ip_address: 188.166.231.170
+
+  working_dir: /home/k8s
+  group: k8s
+  owner: k8s

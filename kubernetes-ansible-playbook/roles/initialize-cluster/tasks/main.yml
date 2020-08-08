@@ -1,0 +1,2 @@
+---
+  - import_tasks: initialize-cluster.yml
