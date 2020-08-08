@@ -8,15 +8,23 @@
       - group: k8s
       - owner: k8s
     tasks:
+      - name: edit file /etc/hosts
+        blockinfile:
+          dest: /etc/hosts
+          insertbefore: BOF
+          block: |
+            188.166.252.80 master.xtl
+            128.199.180.44 worker1.xtl
+
       - name: initialize the cluster
         shell: kubeadm init --apiserver-advertise-address={{ ip_address }} --pod-network-cidr=192.168.0.0/16 >> cluster_initialized.txt
         args:
-          chdir: $HOME
+          chdir: "{{ working_dir }}"
           creates: cluster_initialized.txt
 
       - name: create .kube directory
         file:
-          path: $HOME/.kube
+          path: "{{working_dir}}/.kube"
           state: directory
           mode: 0755
 
@@ -28,7 +36,7 @@
           owner: "{{ owner }}"
 
       - name: install Pod network
-        shell: kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/a70459be0084506e4ec919aa1c114638878db11b/Documentation/kube-flannel.yml >> pod_network_setup.txt
+        shell: kubectl apply -f https://docs.projectcalico.org/v3.10/manifests/calico.yaml >> pod_network_setup.txt
         args:
-          chdir: $HOME
+          chdir: "{{ working_dir }}"
           creates: pod_network_setup.txt
