@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: ungdungnode
-  label:
+  labels:
     app: app1
     ungdung: ungdung1
 spec:
