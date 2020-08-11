@@ -4,7 +4,7 @@
   my_kube: /Users/mac/.kube
 
   #common
-  working_dir: /home/k8s
-  group: k8s
-  owner: k8s
+  working_dir: /home/app
+  group: app
+  owner: app
   password: password

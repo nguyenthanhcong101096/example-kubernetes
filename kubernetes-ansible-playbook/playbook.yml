@@ -1,6 +1,6 @@
 ---
-  - hosts: web
-    remote_user: root
+  - hosts: docker
+    remote_user: app
     become: yes
     roles:
       - common
