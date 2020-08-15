@@ -4,8 +4,10 @@ metadata:
   name: replicaapp
 spec:
   replicas: 3
+  # chon POD có label là app
   selector:
     app: app
+  # template mà POD nó đang chạy
   template:
     metadata:
       name: app

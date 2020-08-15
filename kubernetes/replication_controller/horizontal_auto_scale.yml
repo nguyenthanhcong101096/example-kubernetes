@@ -1,0 +1,14 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: hpa
+spec:
+  # chỉ định replicationController
+  scaleTargetRef:
+    apiVersion: v1
+    kind: ReplicationController
+    name: replicaapp
+  minReplicas: 5
+  maxReplicas: 10
+  # Thực hiện scale CPU hoạt động ở 50% so với CPU mà POD yêu cầu
+  targetCPUUtilizationPercentage: 50
