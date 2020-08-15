@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  labels:
+    app: nginx
+spec:
+  volumes:
+  - name: cert-volume
+    secret:
+      secretName: "nginx-cert"
+  containers:
+  - name: nginx
+    image: congttl/kube:nginx
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 80
+      - containerPort: 433
+    volumeMounts:
+      - mountPath: "/certs"
+        name: cert-volume
+
+###################
+#
+#  Create volumes secret
+#
+#  kubectl create secret tls secret-nginx-cert --cert=certs/tls.crt  --key=certs/tls.key
+#  kubectl describe secret/secret-nginx-cert
+#
+####################
