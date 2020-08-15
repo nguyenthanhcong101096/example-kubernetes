@@ -3,3 +3,5 @@
 
 ## FIX
 [https://github.com/Lentil1016/kubeadm-ha/issues/41](https://github.com/Lentil1016/kubeadm-ha/issues/41)
+
+`kubectl api-resources`
