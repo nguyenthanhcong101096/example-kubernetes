@@ -32,3 +32,12 @@ spec:
         volumeMounts:
           - mountPath: "/certs"
             name: cert-volume
+
+###################
+#
+#  Create volumes secret
+#
+#  kubectl create secret tls secret-nginx-cert --cert=certs/tls.crt  --key=certs/tls.key
+#  kubectl describe secret/secret-nginx-cert
+#
+####################
