@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment
+  labels:
+    name: deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: busybox
+  template:
+    metadata:
+      name: busybox
+      labels:
+        name: busybox
+    spec:
+      volumes:
+      - name: myvolume
+        persistentVolumeClaim:
+          claimName: vpc
+      containers:
+      - name: busybox
+        image: busybox
+        resources: {}
+        ports:
+          - containerPort: 80
+        volumeMounts:
+          - mountPath: "/data"
+            name: myvolume
+
