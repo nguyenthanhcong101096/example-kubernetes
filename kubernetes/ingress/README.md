@@ -39,3 +39,5 @@ kubectl get all -n ingress-controller
 - Giờ truy cập địa chỉ http://congnt.test sẽ thấy
 
 ![](https://raw.githubusercontent.com/xuanthulabnet/learn-kubernetes/master/imgs/kubernetes049.png)
+
+[https://xuanthulab.net/su-dung-ingress-trong-kubernetes.html](https://xuanthulab.net/su-dung-ingress-trong-kubernetes.html)

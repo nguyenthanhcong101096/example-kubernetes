@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: app
+  namespace: ingress-controller
+spec:
+  tls:
+    - hosts:
+      - congnt.test
+      secretName: congnt-test
+  rules:
+  - host: congnt.test
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: myservice
+          servicePort: 80
