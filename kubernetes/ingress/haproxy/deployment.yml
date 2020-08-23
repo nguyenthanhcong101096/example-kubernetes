@@ -1,31 +1,30 @@
 apiVersion: v1
 kind: Service
 metadata:
-  namespace: ingress
+  namespace: ingress-controller
   name: myservice
 spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
   selector:
     name: app
-  ports:
-    - port: 80
-      protocol: TCP
-      targetPort: 80
-  type: ClusterIP
   sessionAffinity: None
+  type: ClusterIP
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mydeployment
-  namespace: ingress
+  namespace: ingress-controller
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       name: app
   template:
     metadata:
-      namespace: ingress
       name: app
       labels:
         name: app

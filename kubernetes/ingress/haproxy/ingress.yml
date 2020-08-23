@@ -2,7 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: myingress
-  namespace: ingress
+  namespace: ingress-controller
   labels:
     name: myingress
 spec:
