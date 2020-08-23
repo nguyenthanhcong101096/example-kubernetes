@@ -2,7 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: app
-  namespace: ingress
+  namespace: ingress-controller
 spec:
   tls:
     - hosts:

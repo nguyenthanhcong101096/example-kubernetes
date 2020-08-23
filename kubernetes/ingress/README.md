@@ -40,4 +40,12 @@ kubectl get all -n ingress-controller
 
 ![](https://raw.githubusercontent.com/xuanthulabnet/learn-kubernetes/master/imgs/kubernetes049.png)
 
-[https://xuanthulab.net/su-dung-ingress-trong-kubernetes.html](https://xuanthulab.net/su-dung-ingress-trong-kubernetes.html)
+create ssl
+
+```
+openssl req -x509 -newkey rsa:2048 -nodes -days 365 -keyout privkey.pem -out fullchain.pem -subj '/CN=xuanthulab.test'
+
+Sau đó tạo một Secret (thuộc namespace chạy POD), đặt tên Secret này là xuanthulab-test
+
+kubectl create secret tls xuanthulab-test --cert=fullchain.pem --key=privkey.pem -n ingress-controller
+```
