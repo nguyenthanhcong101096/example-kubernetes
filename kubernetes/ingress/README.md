@@ -49,3 +49,38 @@ Sau đó tạo một Secret (thuộc namespace chạy POD), đặt tên Secret n
 
 kubectl create secret tls xuanthulab-test --cert=fullchain.pem --key=privkey.pem -n ingress-controller
 ```
+
+#### Cài đặt Nginx Ingress Controller
+
+![](https://raw.githubusercontent.com/xuanthulabnet/learn-kubernetes/master/imgs/kubernetes057.png)
+
+- **NGINX Kubernetes Ingress Controller** là một ingress hỗ trợ khả năng căn bằng tải, SSL, URI rewrite ...
+- Ingress Controller được cung cấp bởi Nginx là một proxy nổi tiếng, mã nguồn của Nginx Ingress Controller trên github tại: [nginxinc/kubernetes-ingress](https://github.com/nginxinc/kubernetes-ingress)
+
+> [Hướng dẫn cài đặt cơ bản nginx ingress](https://docs.nginx.com/nginx-ingress-controller/installation/installation-with-manifests/)
+
+**Cài đặt NGINX Ingress Controller**
+Từ tài liệu hướng dẫn, sẽ triển khai Nginx Ingress Controller bằng cách triển khai các manifest (yaml) từ mã nguồn tại [nginxinc/kubernetes-ingress](https://github.com/nginxinc/kubernetes-ingress), trước tiên tải về bộ mã nguồn này bằng Git (xem sử dụng git):
+
+```
+git clone git@github.com:nginxinc/kubernetes-ingress.git
+
+cd kubernetes-ingress
+
+# Các menifest (yaml) cần triển khai ở trong thư mục deployments, hãy vào thư mục này
+
+kubectl apply -f common/ns-and-sa.yaml
+kubectl apply -f common/default-server-secret.yaml
+kubectl apply -f common/nginx-config.yaml
+kubectl apply -f rbac/rbac.yaml
+kubectl apply -f daemon-set/nginx-ingress.yaml
+
+# Kiểm tra daemonset và các pod của Nginx Ingress Controller
+
+kubectl get ds -n nginx-ingress
+kubectl get po -n nginx-ingress
+```
+
+![](https://raw.githubusercontent.com/xuanthulabnet/learn-kubernetes/master/imgs/kubernetes058.png)
+
+**Ví dụ tạo Ingress**
