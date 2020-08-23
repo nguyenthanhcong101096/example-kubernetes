@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Ingess
+metadata:
+  name: nginxingress
+  namespace: nginx-ingress
+sepc:
+  rules:
+  - host: congnt.test
+    http:
+      paths:
+        - path: /
+          backend:
+            serviceName: myservice
+            servicePort: 80
