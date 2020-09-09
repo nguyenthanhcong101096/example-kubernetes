@@ -82,5 +82,3 @@ kubectl get po -n nginx-ingress
 ```
 
 ![](https://raw.githubusercontent.com/xuanthulabnet/learn-kubernetes/master/imgs/kubernetes058.png)
-
-**Ví dụ tạo Ingress**
