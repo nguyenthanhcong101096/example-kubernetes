@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: app-deloyment
+  name: app-deployment
   namespace: demo-k8s
 spec:
   replicas: 2
@@ -19,18 +19,11 @@ spec:
     spec:
       containers:
         - name: rails
-          image: congtll/app_rails:latest
+          image: congtll/rails_app:latest
           command: ["bin/rails"]
           args: ["s", "-p", "3000", "-b", "0.0.0.0"]
-          volumeMounts:
-            - mountPath: /k8s-app/env
-              name: configmap-env
-            - mountPath: /k8s-app/secret
-              name: secret-env 
-      volumes:
-        - name: secret-env
-          secret:
-            secretName: secret-env
-        - name: configmap-env
-          configMap:
-            name: configmap-env
+          envFrom:
+            - secretRef:
+                name: secret-env
+            - secretRef:
+                name: configmap-env
