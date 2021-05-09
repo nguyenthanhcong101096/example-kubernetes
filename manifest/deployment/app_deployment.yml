@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: app_deloyment
+  name: app-deloyment
   namespace: demo-k8s
 spec:
   replicas: 2
@@ -10,25 +10,27 @@ spec:
     matchLabels:
       app: app_rails
       tiger: app
-  templates:
-    matadata:
-      name: app_pod
-    labels:
-      app: app_rails
-      tiger: app
+  template:
+    metadata:
+      name: app-pod
+      labels:
+        app: app_rails
+        tiger: app
     spec:
       containers:
         - name: rails
           image: congtll/app_rails:latest
           command: ["bin/rails"]
-          agrs: ["s", "-p", "3000", "-b", "0.0.0.0"]
+          args: ["s", "-p", "3000", "-b", "0.0.0.0"]
           volumeMounts:
-            - name: configmap_env
-            - name: secret_env 
-  volumes:
-    - name: secret_env
-      secret:
-        name: secret_env
-    - name: configmap_env
-      configMap:
-        name: configmap_env
+            - mountPath: /k8s-app/env
+              name: configmap-env
+            - mountPath: /k8s-app/secret
+              name: secret-env 
+      volumes:
+        - name: secret-env
+          secret:
+            secretName: secret-env
+        - name: configmap-env
+          configMap:
+            name: configmap-env

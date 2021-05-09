@@ -2,7 +2,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: job_setup
+  name: job-setup
   namespace: demo-k8s
 spec:
   template:
@@ -13,7 +13,7 @@ spec:
         - name: setup
           image: congtll/app_rails:latest
           command: ["bin/rails"]
-          agrs: ["db:create", "db:migrate", "db:seed"]
+          args: ["db:create", "db:migrate", "db:seed"]
           env:
             - name: RAILS_ENV
               value: production
