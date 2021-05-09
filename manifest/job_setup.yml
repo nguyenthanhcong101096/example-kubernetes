@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
         - name: setup
-          image: congtll/rails_app:latest
+          image: congttl/rails_app
           command: ["bin/rails"]
           args: ["db:create", "db:migrate", "db:seed"]
           env:

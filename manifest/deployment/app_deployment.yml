@@ -19,11 +19,11 @@ spec:
     spec:
       containers:
         - name: rails
-          image: congtll/rails_app:latest
+          image: congttl/rails_app
           command: ["bin/rails"]
           args: ["s", "-p", "3000", "-b", "0.0.0.0"]
           envFrom:
             - secretRef:
                 name: secret-env
-            - secretRef:
+            - configMapRef:
                 name: configmap-env
