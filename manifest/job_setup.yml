@@ -1,0 +1,25 @@
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: job_setup
+  namespace: demo-k8s
+spec:
+  template:
+    metadata:
+      name: setup
+    spec:
+      containers:
+        - name: setup
+          image: congtll/app_rails:latest
+          command: ["bin/rails"]
+          agrs: ["db:create", "db:migrate", "db:seed"]
+          env:
+            - name: RAILS_ENV
+              value: production
+          volumeMounts:
+            - name: secret_env
+  volumes:
+    - name: secret_env
+      secret:
+        name: secret_env
