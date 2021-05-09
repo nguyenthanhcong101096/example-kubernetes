@@ -1,0 +1,31 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app_deloyment
+  namespace: demo-k8s
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: app_rails
+      tiger: app
+  templates:
+    matadata:
+      name: app_pod
+    labels:
+      app: app_rails
+      tiger: app
+    spec:
+      containers:
+        - name: rails
+          image: congtll/app_rails:latest
+          command: ["bin/rails"]
+          agrs: ["s", "-p", "3000", "-b", "0.0.0.0"]
+  volumes:
+    - name: secret_env
+      secret:
+        name: secret_env
+    - name: configmap_env
+      configMap:
+        name: configmap_env

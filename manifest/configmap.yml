@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: configmap_env
+  namespace: demo-k8s
+  labels:
+    app: app_rails
+    tiger: config_map
+data:
+  APP: configmap_k8s
+  RAILS_ENV: production
