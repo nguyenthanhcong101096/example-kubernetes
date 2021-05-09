@@ -1,0 +1,30 @@
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: db-daemonset
+  namespace: demo-k8s
+spec:
+  selector:
+    matchLabels:
+      app: db-daemonset
+      tiger: db
+  template:
+    metadata:
+      name: database 
+      labels:
+        app: db-daemonset
+        tiger: db
+    spec:
+      containers:
+        - name: mysql
+          image: mysql
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: password
+            - name: MYSQL_USER
+              value: congnt
+            - name: MYSQL_PASSWORD
+              value: password
+          ports:
+            - containerPort: 3306

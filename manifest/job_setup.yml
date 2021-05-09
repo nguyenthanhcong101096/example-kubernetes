@@ -9,17 +9,14 @@ spec:
     metadata:
       name: setup
     spec:
+      restartPolicy: "OnFailure"
       containers:
         - name: setup
           image: congttl/rails_app
           command: ["bin/rails"]
           args: ["db:create", "db:migrate", "db:seed"]
-          env:
-            - name: RAILS_ENV
-              value: production
-          volumeMounts:
-            - name: secret_env
-  volumes:
-    - name: secret_env
-      secret:
-        name: secret_env
+          envFrom:
+            - secretRef:
+                name: secret-env
+            - configMapRef:
+                name: configmap-env
