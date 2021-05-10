@@ -7,18 +7,18 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: app_rails
-      tiger: database
+      app: demo_k8s
+      tier: database
   template:
     metadata:
-      name: database 
+      name: database
       labels:
-        app: app_rails
-        tiger: database
+        app: demo_k8s
+        tier: database
     spec:
       volumes:
         - name: db-data
-          hostPath: 
+          hostPath:
             path: /db_data
       containers:
         - name: mysql

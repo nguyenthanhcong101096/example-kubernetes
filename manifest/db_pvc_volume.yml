@@ -4,14 +4,15 @@ kind: PersistentVolume
 metadata:
   namespace: demo-k8s
   name: pv-mysql
+  labels:
+    type: local
 spec:
-  storageClassName: mysql-volume
   capacity:
-    storage: 5Gi
+    storage: 4Gi
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/v1"
+    path: "/tmp/data"
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -19,9 +20,8 @@ metadata:
   namespace: demo-k8s
   name: pvc-mysql
 spec:
-  storageClassName: mysql-volume
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 150Mi
+      storage: 4Gi

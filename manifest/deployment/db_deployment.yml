@@ -2,24 +2,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: db-deployment
+  name: database
   namespace: demo-k8s
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: app_rails
-      tiger: database
+      app: demo_k8s
+      tier: database
   template:
     metadata:
-      name: mysql 
+      name: database
       labels:
-        app: app_rails
-        tiger: database
+        app: demo_k8s
+        tier: database
     spec:
       volumes:
-        - name: mysq-volume
-          persistentVolumeClaim: 
+        - name: mysql-volume
+          persistentVolumeClaim:
             claimName: pvc-mysql
       containers:
         - name: mysql
@@ -34,5 +34,5 @@ spec:
           ports:
             - containerPort: 3306
           volumeMounts:
-            - name: mysq-volume
-              mountPath: /var/lib/mysql
+            - mountPath: "/var/lib/mysql"
+              name: mysql-volume

@@ -5,8 +5,8 @@ metadata:
   name: configmap-env
   namespace: demo-k8s
   labels:
-    app: app_rails
-    tiger: config_map
+    app: demo_k8s
+    tier: env
 data:
   APP: configmap_k8s
   RAILS_ENV: production

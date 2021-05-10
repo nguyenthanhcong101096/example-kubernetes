@@ -2,20 +2,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: app-deployment
+  name: rails
   namespace: demo-k8s
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: app_rails
-      tiger: app
+      app: demo_k8s
+      tier: rails
   template:
     metadata:
       name: rails
       labels:
-        app: app_rails
-        tiger: app
+        app: demo_k8s
+        tier: rails
     spec:
       containers:
         - name: rails
