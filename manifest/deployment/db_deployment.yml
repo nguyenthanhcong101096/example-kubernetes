@@ -23,7 +23,7 @@ spec:
             claimName: pvc-mysql
       containers:
         - name: mysql
-          image: mysql
+          image: mysql:8.0
           env:
             - name: MYSQL_ROOT_PASSWORD
               value: password
@@ -34,5 +34,5 @@ spec:
           ports:
             - containerPort: 3306
           volumeMounts:
-            - mountPath: "/var/lib/mysql"
-              name: mysql-volume
+            - name: mysql-volume
+              mountPath: /var/lib/mysql
