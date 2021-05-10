@@ -17,9 +17,9 @@ spec:
         tiger: database
     spec:
       volumes:
-        - name: mysq-volume
-          persistentVolumeClaim: 
-            claimName: pvc-mysql
+        - name: db-data
+          hostPath: 
+            path: /db_data
       containers:
         - name: mysql
           image: mysql
@@ -33,5 +33,5 @@ spec:
           ports:
             - containerPort: 3306
           volumeMounts:
-            - name: mysq-volume
+            - name: db-data
               mountPath: /var/lib/mysql
