@@ -10,6 +10,7 @@ spec:
   type: ClusterIP
   selector:
     app: app_rails
+    tiger: database
   ports:
     - port: 3306
       targetPort: 3306
