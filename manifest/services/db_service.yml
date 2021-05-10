@@ -8,9 +8,9 @@ metadata:
     app: db-service
     tiger: service
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     app: db-daemonset
-    tiger: db
   ports:
     - port: 3306
+      targetPort: 3306

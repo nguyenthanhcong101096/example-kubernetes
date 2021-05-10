@@ -5,11 +5,12 @@ metadata:
   name: job-setup
   namespace: demo-k8s
 spec:
+  backoffLimit: 3
   template:
     metadata:
       name: setup
     spec:
-      restartPolicy: "OnFailure"
+      restartPolicy: "Never"
       containers:
         - name: setup
           image: congttl/rails_app

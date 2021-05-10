@@ -8,13 +8,11 @@ spec:
   selector:
     matchLabels:
       app: db-daemonset
-      tiger: db
   template:
     metadata:
       name: database 
       labels:
         app: db-daemonset
-        tiger: db
     spec:
       containers:
         - name: mysql
