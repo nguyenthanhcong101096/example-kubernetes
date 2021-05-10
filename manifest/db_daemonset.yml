@@ -7,13 +7,19 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: db-daemonset
+      app: app_rails
+      tiger: database
   template:
     metadata:
       name: database 
       labels:
-        app: db-daemonset
+        app: app_rails
+        tiger: database
     spec:
+      volumes:
+        - name: mysq-volume
+          persistentVolumeClaim: 
+            claimName: pvc-mysql
       containers:
         - name: mysql
           image: mysql
@@ -26,3 +32,6 @@ spec:
               value: password
           ports:
             - containerPort: 3306
+          volumeMounts:
+            - name: mysq-volume
+              mountPath: /var/lib/mysql

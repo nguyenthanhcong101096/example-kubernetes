@@ -6,11 +6,10 @@ metadata:
   namespace: demo-k8s
   labels:
     app: db-service
-    tiger: service
 spec:
   type: ClusterIP
   selector:
-    app: db-daemonset
+    app: app_rails
   ports:
     - port: 3306
       targetPort: 3306

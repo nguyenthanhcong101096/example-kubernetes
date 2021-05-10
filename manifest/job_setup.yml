@@ -5,7 +5,7 @@ metadata:
   name: job-setup
   namespace: demo-k8s
 spec:
-  backoffLimit: 3
+  backoffLimit: 1
   template:
     metadata:
       name: setup
