@@ -12,7 +12,7 @@ spec:
       tiger: app
   template:
     metadata:
-      name: app-pod
+      name: rails
       labels:
         app: app_rails
         tiger: app
