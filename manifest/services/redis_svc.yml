@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis
+  labels:
+    app: demo_k8s
+spec:
+  ports:
+    - port: 6379
+  selector:
+    app: demo_k8s
+    tier: redis

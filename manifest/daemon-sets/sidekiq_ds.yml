@@ -1,0 +1,27 @@
+
+---
+apiVersion: v1
+kind: DaemonSet
+metadata:
+  name: sidekiq
+spec:
+  replicas: 1
+  selector:
+    app: demo_k8s
+    tier: sidekiq
+  template:
+    metadata:
+      name: sidekiq
+      labels:
+        app: demo_k8s
+        tier: sidekiq
+    spec:
+      containers:
+      - name: sidekiq
+        image: congttl/rails_app
+        args: ["sidekiq -C config/sidekiq.yml"]
+        envFrom:
+          - secretRef:
+              name: secret-env
+          - configMapRef:
+              name: configmap-env

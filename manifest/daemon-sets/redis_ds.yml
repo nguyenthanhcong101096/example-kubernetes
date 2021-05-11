@@ -1,0 +1,26 @@
+---
+apiVersion: v1
+kind: DaemonSet
+meta:
+  name: redis
+  namespace: k8s
+  labels:
+    app: demo_k8s
+spec:
+  selector:
+    matchLabels:
+      app: demo_k8s
+      tier: redis
+  template:
+    metadata:
+      name: redis
+      namespace: k8s
+      labels:
+        app: k8s
+        tier: redis
+    spec:
+      containers:
+        - name: redis
+          image: redis:3.2-alpine
+          ports:
+            - containerPort: 6379
