@@ -397,3 +397,11 @@ Completed 200 OK in 37ms (Views: 0.3ms | ActiveRecord: 14.0ms | Allocations: 985
   ↳ app/workers/demo_schedule_worker.rb:11:in `perform'
   [1m[36mTRANSACTION (20.6ms)[0m  [1m[35mCOMMIT[0m
   ↳ app/workers/demo_schedule_worker.rb:11:in `perform'
+  [1m[36mCount Load (42.2ms)[0m  [1m[34mSELECT `counts`.* FROM `counts` WHERE `counts`.`name` = 'k8s' LIMIT 1[0m
+  ↳ app/workers/demo_schedule_worker.rb:9:in `perform'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/workers/demo_schedule_worker.rb:11:in `perform'
+  [1m[36mCount Update (0.8ms)[0m  [1m[33mUPDATE `counts` SET `counts`.`view_count` = 7, `counts`.`updated_at` = '2021-05-11 13:51:10.448781' WHERE `counts`.`id` = 1[0m
+  ↳ app/workers/demo_schedule_worker.rb:11:in `perform'
+  [1m[36mTRANSACTION (133.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/workers/demo_schedule_worker.rb:11:in `perform'
