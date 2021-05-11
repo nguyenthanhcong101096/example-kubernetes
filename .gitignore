@@ -3,3 +3,4 @@
 ./kubernetes-virtualbox-vagrant/worker2/.vagrant
 ./app/tmp
 ./app/node_modules
+./app/log
