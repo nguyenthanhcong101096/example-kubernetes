@@ -1,3 +1,5 @@
 ./kubernetes-virtualbox-vagrant/master/.vagrant
 ./kubernetes-virtualbox-vagrant/worker1/.vagrant
 ./kubernetes-virtualbox-vagrant/worker2/.vagrant
+./app/tmp/
+./app/node_modules/
