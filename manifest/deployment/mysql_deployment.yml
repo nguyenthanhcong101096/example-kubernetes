@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: database
-  namespace: demo-k8s
+  
   labels:
     app: demo_k8s
 spec:

@@ -3,7 +3,7 @@ kind: PersistentVolume
 apiVersion: v1
 metadata:
   name: database-pv
-  namespace: demo-k8s
+  
   labels:
     type: local
 spec:
@@ -18,7 +18,7 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: database-pvc
-  namespace: demo-k8s
+  
 spec:
   accessModes:
     - ReadWriteOnce
