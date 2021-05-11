@@ -1,7 +1,7 @@
 ---
-apiVersion: v1
+apiVersion: apps/v1
 kind: DaemonSet
-meta:
+metadata:
   name: redis
   namespace: k8s
   labels:
@@ -13,10 +13,10 @@ spec:
       tier: redis
   template:
     metadata:
-      name: redis
       namespace: k8s
+      name: redis
       labels:
-        app: k8s
+        app: demo_k8s
         tier: redis
     spec:
       containers:
