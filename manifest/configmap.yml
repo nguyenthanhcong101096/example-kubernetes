@@ -10,5 +10,6 @@ metadata:
 data:
   APP: configmap_k8s
   RAILS_ENV: production
-  REDIS_URL: redis
+  REDIS_HOST: redis
   REDIS_PORT: "6379"
+  REDIS_URL: redis://redis:6379
