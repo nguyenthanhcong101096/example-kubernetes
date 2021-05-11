@@ -4,11 +4,12 @@ apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   name: sidekiq
+  namespace: k8s
 spec:
-  replicas: 1
   selector:
-    app: demo_k8s
-    tier: sidekiq
+    matchLabels:
+      app: demo_k8s
+      tier: sidekiq
   template:
     metadata:
       name: sidekiq
@@ -19,7 +20,7 @@ spec:
       containers:
       - name: sidekiq
         image: congttl/rails_app
-        args: ["sidekiq -C config/sidekiq.yml"]
+        args: ["bundle exec sidekiq -C config/sidekiq.yml"]
         envFrom:
           - secretRef:
               name: secret-env
