@@ -3,7 +3,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: database
-  
   labels:
     app: demo_k8s
 spec:
