@@ -1,0 +1,23 @@
+---
+:concurrency: 20
+:max_retries: 1
+
+# max_connection = 19 # Redis nano plan: total allowed connections.
+# web_dynos = 1 # Running a single web dyno and web process for the app.
+# web_threads = 5*2 = 10 # we are using puma (2 worker) with 5 threads
+# client_conn = 1 # The number of connections each web process thread makes to the Redis server.
+# worker_dynos = 1 # Processes running the sidekiq process.
+# redis_reserved = 2
+# web_connections     = (web_dynos * (client_conn * web_threads));
+# concurrency         = (max_connections - web_connections - (redis_reserved * worker_dynos)) / worker_dynos;
+
+# Or using this to calculate
+# http://manuelvanrijn.nl/sidekiq-heroku-redis-calc/
+# Discussion: https://github.com/mperham/sidekiq/issues/117#issuecomment-439663905
+heroku:
+  :concurrency: 5
+
+:queues:
+  - ["demo", 1]
+  - ["default", 2]
+  - ["low", 3]

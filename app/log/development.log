@@ -124,3 +124,260 @@ Processing by PagesController#index as HTML
 Completed 200 OK in 26ms (Views: 0.3ms | ActiveRecord: 8.0ms | Allocations: 5265)
 
 
+Started GET "/" for ::1 at 2021-05-11 20:28:03 +0700
+  [1m[35m (10.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by PagesController#index as HTML
+  [1m[36mUser Load (39.2ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  ↳ app/controllers/pages_controller.rb:3:in `index'
+Completed 200 OK in 160ms (Views: 0.6ms | ActiveRecord: 85.8ms | Allocations: 5612)
+
+
+Started GET "/" for ::1 at 2021-05-11 20:28:03 +0700
+Processing by PagesController#index as HTML
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  ↳ app/controllers/pages_controller.rb:3:in `index'
+Completed 200 OK in 32ms (Views: 0.2ms | ActiveRecord: 2.8ms | Allocations: 904)
+
+
+Started GET "/sidekiq" for ::1 at 2021-05-11 20:28:08 +0700
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2021-05-11 20:28:08 +0700
+Started GET "/sidekiq/stylesheets/application-dark.css" for ::1 at 2021-05-11 20:28:08 +0700
+Started GET "/sidekiq/javascripts/dashboard.js" for ::1 at 2021-05-11 20:28:08 +0700
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2021-05-11 20:28:08 +0700
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2021-05-11 20:28:08 +0700
+Started GET "/sidekiq/images/status.png" for ::1 at 2021-05-11 20:28:08 +0700
+Started GET "/sidekiq/images/favicon.ico" for ::1 at 2021-05-11 20:28:08 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:28:14 +0700
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` /* loading for inspect */ LIMIT 11[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('1691213092909586085', 0)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateCounts (20210511132913)
+  [1m[35m (11.4ms)[0m  [1m[35mCREATE TABLE `counts` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `view_count` int DEFAULT 0, `name` varchar(255) DEFAULT 'k8s', `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210511132913')[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (6.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('1691213092909586085')[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:34:59 +0700
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started GET "/sidekiq" for ::1 at 2021-05-11 20:35:02 +0700
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2021-05-11 20:35:02 +0700
+Started GET "/sidekiq/stylesheets/application-dark.css" for ::1 at 2021-05-11 20:35:02 +0700
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2021-05-11 20:35:02 +0700
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2021-05-11 20:35:02 +0700
+Started GET "/sidekiq/javascripts/dashboard.js" for ::1 at 2021-05-11 20:35:02 +0700
+Started GET "/sidekiq/images/status.png" for ::1 at 2021-05-11 20:35:02 +0700
+Started GET "/sidekiq/images/favicon.ico" for ::1 at 2021-05-11 20:35:02 +0700
+Started GET "/sidekiq" for ::1 at 2021-05-11 20:35:04 +0700
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2021-05-11 20:35:04 +0700
+Started GET "/sidekiq/javascripts/dashboard.js" for ::1 at 2021-05-11 20:35:04 +0700
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2021-05-11 20:35:04 +0700
+Started GET "/sidekiq/stylesheets/application-dark.css" for ::1 at 2021-05-11 20:35:04 +0700
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2021-05-11 20:35:04 +0700
+Started GET "/sidekiq/images/status.png" for ::1 at 2021-05-11 20:35:04 +0700
+Started GET "/sidekiq/images/favicon.ico" for ::1 at 2021-05-11 20:35:04 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:35:10 +0700
+Started GET "/" for ::1 at 2021-05-11 20:35:11 +0700
+Processing by PagesController#index as HTML
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  ↳ app/controllers/pages_controller.rb:3:in `index'
+Completed 200 OK in 36ms (Views: 0.3ms | ActiveRecord: 11.0ms | Allocations: 5538)
+
+
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:35:15 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:35:20 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:35:25 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:35:30 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:35:35 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:35:40 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:35:45 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:35:50 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:35:56 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:36:00 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:36:05 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:36:10 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:36:15 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:36:20 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:36:25 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:36:30 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:36:35 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:36:40 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:36:45 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:36:50 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:36:55 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:37:00 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:37:05 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:37:10 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:37:15 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:37:20 +0700
+Started GET "/" for ::1 at 2021-05-11 20:37:21 +0700
+  
+SyntaxError (/Users/mac/Documents/Learn/kubernetes/app/app/controllers/pages_controller.rb:8: syntax error, unexpected local variable or method, expecting '}'
+      user: user.slice(:name, :address)
+      ^~~~
+/Users/mac/Documents/Learn/kubernetes/app/app/controllers/pages_controller.rb:9: syntax error, unexpected '}', expecting `end'
+    }
+    ^
+):
+  
+app/controllers/pages_controller.rb:8: syntax error, unexpected local variable or method, expecting '}'
+app/controllers/pages_controller.rb:9: syntax error, unexpected '}', expecting `end'
+app/controllers/pages_controller.rb:8: syntax error, unexpected local variable or method, expecting '}'
+app/controllers/pages_controller.rb:9: syntax error, unexpected '}', expecting `end'
+app/controllers/pages_controller.rb:8: syntax error, unexpected local variable or method, expecting '}'
+app/controllers/pages_controller.rb:9: syntax error, unexpected '}', expecting `end'
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:37:25 +0700
+Started GET "/" for ::1 at 2021-05-11 20:37:29 +0700
+Processing by PagesController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  ↳ app/controllers/pages_controller.rb:3:in `index'
+  [1m[36mCount Load (1.9ms)[0m  [1m[34mSELECT `counts`.* FROM `counts` ORDER BY `counts`.`id` DESC LIMIT 1[0m
+  ↳ app/controllers/pages_controller.rb:7:in `index'
+Completed 200 OK in 31ms (Views: 0.2ms | ActiveRecord: 12.1ms | Allocations: 5643)
+
+
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:37:30 +0700
+Started GET "/" for ::1 at 2021-05-11 20:37:31 +0700
+Processing by PagesController#index as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  ↳ app/controllers/pages_controller.rb:3:in `index'
+  [1m[36mCount Load (0.9ms)[0m  [1m[34mSELECT `counts`.* FROM `counts` ORDER BY `counts`.`id` DESC LIMIT 1[0m
+  ↳ app/controllers/pages_controller.rb:7:in `index'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 2.4ms | Allocations: 1586)
+
+
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:37:35 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:37:41 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:37:45 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:37:50 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:37:55 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:38:00 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:38:05 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:38:10 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:38:15 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:38:20 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:38:25 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:38:30 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:38:35 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:38:40 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:38:46 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:38:50 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:38:55 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:39:00 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:39:05 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:39:10 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:39:15 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:39:20 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:39:25 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:39:30 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:39:35 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:39:40 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:39:45 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:39:50 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:39:55 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:40:00 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:40:05 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:40:48 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:41:48 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:42:48 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:43:48 +0700
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:44:48 +0700
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mCount Load (0.5ms)[0m  [1m[34mSELECT `counts`.* FROM `counts` WHERE `counts`.`name` = 'k8s' LIMIT 1[0m
+  ↳ app/workers/demo_schedule_worker.rb:9:in `perform'
+  [1m[36mCount Load (7.9ms)[0m  [1m[34mSELECT `counts`.* FROM `counts` WHERE `counts`.`name` = 'k8s' LIMIT 1[0m
+  ↳ app/workers/demo_schedule_worker.rb:9:in `perform'
+  [1m[36mCount Load (0.7ms)[0m  [1m[34mSELECT `counts`.* FROM `counts` WHERE `counts`.`name` = 'k8s' LIMIT 1[0m
+  ↳ app/workers/demo_schedule_worker.rb:9:in `perform'
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:45:48 +0700
+  [1m[36mCount Load (0.5ms)[0m  [1m[34mSELECT `counts`.* FROM `counts` WHERE `counts`.`name` = 'k8s' LIMIT 1[0m
+  ↳ app/workers/demo_schedule_worker.rb:9:in `perform'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/workers/demo_schedule_worker.rb:11:in `perform'
+  [1m[36mCount Create (0.3ms)[0m  [1m[32mINSERT INTO `counts` (`view_count`, `created_at`, `updated_at`) VALUES (1, '2021-05-11 13:45:57.785518', '2021-05-11 13:45:57.785518')[0m
+  ↳ app/workers/demo_schedule_worker.rb:11:in `perform'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/workers/demo_schedule_worker.rb:11:in `perform'
+Started GET "/sidekiq/stats" for ::1 at 2021-05-11 20:46:03 +0700
+Started GET "/sidekiq" for ::1 at 2021-05-11 20:46:03 +0700
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2021-05-11 20:46:03 +0700
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2021-05-11 20:46:03 +0700
+Started GET "/sidekiq/stylesheets/application-dark.css" for ::1 at 2021-05-11 20:46:03 +0700
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2021-05-11 20:46:03 +0700
+Started GET "/sidekiq/javascripts/dashboard.js" for ::1 at 2021-05-11 20:46:03 +0700
+Started GET "/sidekiq/images/status.png" for ::1 at 2021-05-11 20:46:03 +0700
+Started GET "/sidekiq/images/favicon.ico" for ::1 at 2021-05-11 20:46:04 +0700
+Started GET "/sidekiq/queues" for ::1 at 2021-05-11 20:46:04 +0700
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2021-05-11 20:46:05 +0700
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2021-05-11 20:46:05 +0700
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2021-05-11 20:46:05 +0700
+Started GET "/sidekiq/stylesheets/application-dark.css" for ::1 at 2021-05-11 20:46:05 +0700
+Started GET "/sidekiq/images/status.png" for ::1 at 2021-05-11 20:46:05 +0700
+Started GET "/sidekiq/morgue" for ::1 at 2021-05-11 20:46:06 +0700
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2021-05-11 20:46:06 +0700
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2021-05-11 20:46:06 +0700
+Started GET "/sidekiq/stylesheets/application-dark.css" for ::1 at 2021-05-11 20:46:06 +0700
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2021-05-11 20:46:06 +0700
+Started GET "/sidekiq/images/status.png" for ::1 at 2021-05-11 20:46:06 +0700
+Started GET "/" for ::1 at 2021-05-11 20:46:10 +0700
+Processing by PagesController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  ↳ app/controllers/pages_controller.rb:3:in `index'
+  [1m[36mCount Load (1.1ms)[0m  [1m[34mSELECT `counts`.* FROM `counts` ORDER BY `counts`.`id` DESC LIMIT 1[0m
+  ↳ app/controllers/pages_controller.rb:7:in `index'
+Completed 200 OK in 34ms (Views: 0.4ms | ActiveRecord: 15.1ms | Allocations: 8205)
+
+
+Started GET "/" for ::1 at 2021-05-11 20:46:11 +0700
+Processing by PagesController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  ↳ app/controllers/pages_controller.rb:3:in `index'
+  [1m[36mCount Load (1.2ms)[0m  [1m[34mSELECT `counts`.* FROM `counts` ORDER BY `counts`.`id` DESC LIMIT 1[0m
+  ↳ app/controllers/pages_controller.rb:7:in `index'
+Completed 200 OK in 23ms (Views: 0.4ms | ActiveRecord: 2.3ms | Allocations: 1600)
+
+
+Started GET "/" for ::1 at 2021-05-11 20:46:17 +0700
+Processing by PagesController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  ↳ app/controllers/pages_controller.rb:3:in `index'
+  [1m[36mCount Load (1.2ms)[0m  [1m[34mSELECT `counts`.* FROM `counts` ORDER BY `counts`.`id` DESC LIMIT 1[0m
+  ↳ app/controllers/pages_controller.rb:7:in `index'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 2.3ms | Allocations: 1592)
+
+
+  [1m[36mCount Load (22.3ms)[0m  [1m[34mSELECT `counts`.* FROM `counts` WHERE `counts`.`name` = 'k8s' LIMIT 1[0m
+  ↳ app/workers/demo_schedule_worker.rb:9:in `perform'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/workers/demo_schedule_worker.rb:11:in `perform'
+  [1m[36mCount Update (0.5ms)[0m  [1m[33mUPDATE `counts` SET `counts`.`view_count` = 2, `counts`.`updated_at` = '2021-05-11 13:46:18.863726' WHERE `counts`.`id` = 1[0m
+  ↳ app/workers/demo_schedule_worker.rb:11:in `perform'
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/workers/demo_schedule_worker.rb:11:in `perform'
+  [1m[36mCount Load (30.4ms)[0m  [1m[34mSELECT `counts`.* FROM `counts` WHERE `counts`.`name` = 'k8s' LIMIT 1[0m
+  ↳ app/workers/demo_schedule_worker.rb:9:in `perform'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/workers/demo_schedule_worker.rb:11:in `perform'
+  [1m[36mCount Update (0.4ms)[0m  [1m[33mUPDATE `counts` SET `counts`.`view_count` = 3, `counts`.`updated_at` = '2021-05-11 13:47:33.720577' WHERE `counts`.`id` = 1[0m
+  ↳ app/workers/demo_schedule_worker.rb:11:in `perform'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/workers/demo_schedule_worker.rb:11:in `perform'
+Started GET "/" for ::1 at 2021-05-11 20:48:15 +0700
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by PagesController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  ↳ app/controllers/pages_controller.rb:3:in `index'
+  [1m[36mCount Load (0.9ms)[0m  [1m[34mSELECT `counts`.* FROM `counts` ORDER BY `counts`.`id` DESC LIMIT 1[0m
+  ↳ app/controllers/pages_controller.rb:7:in `index'
+Completed 200 OK in 37ms (Views: 0.3ms | ActiveRecord: 14.0ms | Allocations: 9852)
+
+
+  [1m[36mCount Load (50.1ms)[0m  [1m[34mSELECT `counts`.* FROM `counts` WHERE `counts`.`name` = 'k8s' LIMIT 1[0m
+  ↳ app/workers/demo_schedule_worker.rb:9:in `perform'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/workers/demo_schedule_worker.rb:11:in `perform'
+  [1m[36mCount Update (0.4ms)[0m  [1m[33mUPDATE `counts` SET `counts`.`view_count` = 4, `counts`.`updated_at` = '2021-05-11 13:48:16.786291' WHERE `counts`.`id` = 1[0m
+  ↳ app/workers/demo_schedule_worker.rb:11:in `perform'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/workers/demo_schedule_worker.rb:11:in `perform'

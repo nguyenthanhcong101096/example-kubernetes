@@ -4,6 +4,7 @@ class PagesController < ApplicationController
 
     render json: {
       app_name: ENV["APP"],
+      view_count: Count.last&.view_count,
       user: user.slice(:name, :address)
     }
   end
