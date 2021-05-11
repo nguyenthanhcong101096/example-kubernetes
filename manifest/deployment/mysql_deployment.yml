@@ -4,6 +4,8 @@ kind: Deployment
 metadata:
   name: database
   namespace: demo-k8s
+  labels:
+    app: demo_k8s
 spec:
   replicas: 2
   selector:
@@ -18,9 +20,9 @@ spec:
         tier: database
     spec:
       volumes:
-        - name: mysql-volume
+        - name: database-volume
           persistentVolumeClaim:
-            claimName: pvc-mysql
+            claimName: database-pvc
       containers:
         - name: mysql
           image: mysql:8.0
@@ -34,5 +36,5 @@ spec:
           ports:
             - containerPort: 3306
           volumeMounts:
-            - name: mysql-volume
+            - name: database-volume
               mountPath: /var/lib/mysql

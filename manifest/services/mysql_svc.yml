@@ -6,10 +6,9 @@ metadata:
   namespace: demo-k8s
   labels:
     app: demo_k8s
-    tier: database
 spec:
+  ports:
+    - port: 3306
   selector:
     app: demo_k8s
     tier: database
-  ports:
-    - port: 3306

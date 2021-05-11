@@ -4,6 +4,8 @@ kind: Deployment
 metadata:
   name: rails
   namespace: demo-k8s
+  labels:
+    app: demo_k8s
 spec:
   replicas: 2
   selector:

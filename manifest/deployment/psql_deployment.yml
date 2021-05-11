@@ -1,0 +1,40 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: database
+  namespace: demo-k8s
+  labels:
+    app: demo_k8s
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: demo_k8s
+      tier: database
+  template:
+    metadata:
+      name: database
+      labels:
+        app: demo_k8s
+        tier: database
+    spec:
+      volumes:
+      - name: database-volume
+        persistentVolumeClaim:
+          claimName: database-pvc
+      containers:
+      - name: postgres
+        image: postgres:10.6-alpine
+        env:
+        - name: POSTGRES_DB
+          value: "k8s_production"
+        - name: POSTGRES_USER
+          value: "root"
+        - name: POSTGRES_PASSWORD
+          value: "password"
+        ports:
+          - containerPort: 5432
+        volumeMounts:
+        - mountPath: "/var/lib/postgresql/data"
+          name: database-volume
