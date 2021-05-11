@@ -3,7 +3,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: configmap-env
-  
+  namespace: k8s
   labels:
     app: demo_k8s
     tier: env

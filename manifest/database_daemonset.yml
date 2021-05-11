@@ -3,6 +3,7 @@ apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   name: database
+  namespace: k8s
   labels:
     app: demo_k8s
 spec:
@@ -12,6 +13,7 @@ spec:
       tier: database
   template:
     metadata:
+      namespace: k8s
       name: database
       labels:
         app: demo_k8s

@@ -3,6 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: rails
+  namespace: k8s
   labels:
     app: demo_k8s
 spec:
@@ -13,6 +14,7 @@ spec:
       tier: rails
   template:
     metadata:
+      namespace: k8s
       name: rails
       labels:
         app: demo_k8s
