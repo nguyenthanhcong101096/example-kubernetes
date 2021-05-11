@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
-  name: db-daemonset
+  name: database
   namespace: demo-k8s
 spec:
   selector:
@@ -22,7 +22,7 @@ spec:
             path: /db_data
       containers:
         - name: mysql
-          image: mysql
+          image: mysql:8.0
           env:
             - name: MYSQL_ROOT_PASSWORD
               value: password
