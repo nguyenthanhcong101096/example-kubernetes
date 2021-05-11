@@ -1,0 +1,1 @@
+User.create(name: Faker::Name.name, address: Faker::Name.name)
