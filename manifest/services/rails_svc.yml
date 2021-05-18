@@ -15,3 +15,11 @@ spec:
     - port: 80
       targetPort: 3000
       nodePort: 30001
+
+  # type: LoadBalancer
+  # selector:
+  #   app: demo_k8s
+  #   tier: rails
+  # ports:
+  # - port: 80
+  #   targetPort: 3000
