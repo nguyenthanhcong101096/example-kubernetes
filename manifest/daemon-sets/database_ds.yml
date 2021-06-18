@@ -1,4 +1,13 @@
 ---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-initdb-config
+  namespace: k8s
+data:
+  init.sql: |
+     echo 'ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'password';';
+---
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
@@ -23,6 +32,9 @@ spec:
         - name: db-data
           hostPath:
             path: /db_data
+        - name: mysql-initdb
+          configMap:
+            name: mysql-initdb-config
       containers:
         - name: mysql
           image: mysql:8.0
@@ -38,3 +50,5 @@ spec:
           volumeMounts:
             - name: db-data
               mountPath: /var/lib/mysql
+            - name: mysql-initdb
+              mountPath: /docker-entrypoint-initdb.d
