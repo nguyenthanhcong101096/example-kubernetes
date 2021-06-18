@@ -1,0 +1,74 @@
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/bionic64"
+  config.vm.define "master" do |w|
+    w.vm.hostname = "master"
+    w.vm.network "private_network", ip: "192.168.33.13"
+    w.vm.provider "virtualbox" do |vb|
+      vb.memory = "1800"
+      vb.cpus = 2
+      vb.name = "master"
+    end
+    
+    w.vm.provision "shell", path: "install_package.sh"
+    w.vm.provision "shell", inline: <<-SHELL
+      apt-get update
+      apt-get install -y git wget nano curl
+
+      echo -e "password\npassword" | passwd root
+      echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
+      sed -in 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
+      service ssh restart
+
+      echo "############# DONE ###############"
+    SHELL
+  end
+
+  config.vm.box = "ubuntu/bionic64"
+  config.vm.define "node-1" do |w|
+    w.vm.hostname = "node-1"
+    w.vm.network "private_network", ip: "192.168.33.14"
+    w.vm.provider "virtualbox" do |vb|
+      vb.memory = "1024"
+      vb.cpus = 1
+      vb.name = "node-1"
+    end
+    
+    w.vm.provision "shell", path: "install_package.sh"
+    w.vm.provision "shell", inline: <<-SHELL
+      apt-get update
+      apt-get install -y git wget nano curl
+
+      echo -e "password\npassword" | passwd root
+      echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
+      sed -in 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
+      service ssh restart
+
+      echo "############# DONE ###############"
+    SHELL
+  end
+
+  config.vm.box = "ubuntu/bionic64"
+  config.vm.define "node-2" do |w|
+    w.vm.hostname = "node-2"
+    w.vm.network "private_network", ip: "192.168.33.15"
+    w.vm.provider "virtualbox" do |vb|
+      vb.memory = "1024"
+      vb.cpus = 1
+      vb.name = "node-2"
+    end
+    
+    w.vm.provision "shell", path: "install_package.sh"
+    w.vm.provision "shell", inline: <<-SHELL
+      apt-get update
+      apt-get install -y git wget nano curl
+
+      echo -e "password\npassword" | passwd root
+      echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
+      sed -in 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
+      service ssh restart
+
+      echo "############# DONE ###############"
+    SHELL
+  end
+end
